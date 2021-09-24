@@ -66,7 +66,7 @@ namespace VirtualPet
                 Console.WriteLine("Your robot is not hooked up to a charger.");
             }
             Console.WriteLine("Press any key to continue.");
-            Console.Read();
+            // Console.Read();
         }
 
         public override void Play() 

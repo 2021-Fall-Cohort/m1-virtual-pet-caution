@@ -62,7 +62,7 @@ namespace VirtualPet
             Console.WriteLine("Bored Level " + GetBoredom());
             Console.WriteLine("Hunger Level " + GetHunger());
             Console.WriteLine("Health Level " + GetHealth());
-            
+           // Console.ReadKey();
             
         }
 

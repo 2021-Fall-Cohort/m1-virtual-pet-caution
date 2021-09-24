@@ -40,7 +40,7 @@ namespace VirtualPet
 
             while (keepPlaying)
             {
-               // Console.Clear();
+                Console.Clear();
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine(" +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ ");
 
@@ -71,6 +71,7 @@ namespace VirtualPet
                     case "1":
                         //myPet = MyShelter.SelectPet();
                         myPet.CheckStatus();
+                         Console.ReadKey();
                         break;
                     case "2":
                         myPet.Feed();
@@ -83,6 +84,7 @@ namespace VirtualPet
                     case "4":
                         myPet.SeeDoctor();
                         myPet.CheckStatus();
+                        Console.ReadKey();
                         break;
                     case "5":
                         myPet = MyShelter.PickAPet();
@@ -254,8 +256,10 @@ namespace VirtualPet
                         keepPlaying = false;
                         break;
                     default:
-                       // userInput = Console.ReadLine().ToLower();
-                        
+                        // userInput = Console.ReadLine().ToLower();
+                        Console.ReadKey();
+                        // Console.Clear();
+
                         break;
                 }
 
