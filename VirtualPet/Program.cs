@@ -31,7 +31,7 @@ namespace VirtualPet
             myPet = CreatePet();
             MyShelter.AddPet(myPet);   
 
-           // _timer = new Timer(Tick, null, 0, 5000);
+           _timer = new Timer(Tick, null, 0, 5000);
           
 
             bool keepPlaying = true;
@@ -271,18 +271,18 @@ namespace VirtualPet
             //Pet pet = new Pet();              
            // myPet.Tick();  //will +5 Hunger/ +5 Boredom/ -5 Health
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+            //Console.WriteLine(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 
            // MyShelter.ListPets();
 
             int  index = 0;
             
             
-            foreach (Pet pet1 in MyShelter.ListOfPets)
+            foreach (Pet myPet in MyShelter.ListOfPets)
             {
               //  Console.WriteLine($"{index}: {pet1.GetName()}, {pet1.GetSpecies()}"+" before  hunger  "+ pet1.Hunger+" helth  "+pet1.Health  );
 
-                pet1.Tick();
+                myPet.Tick();
                 
                 
                 
