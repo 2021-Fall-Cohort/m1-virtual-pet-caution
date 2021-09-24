@@ -31,7 +31,7 @@ namespace VirtualPet
             myPet = CreatePet();
             MyShelter.AddPet(myPet);   
 
-           _timer = new Timer(Tick, null, 0, 5000);
+           _timer = new Timer(Tick, null, 0, 15000);
           
 
             bool keepPlaying = true;
@@ -210,15 +210,6 @@ namespace VirtualPet
         public static void ManageShelter()
         {
             bool keepPlaying = true;
-            Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine($"You survey the pets assembled in {MyShelter.Name}.");
-            Console.WriteLine("What would you like to do?");
-            Console.WriteLine("1. Adopt a pet out of your shelter.");
-            Console.WriteLine("2. See all pets in your shelter.");
-            Console.WriteLine("3. Check status of all pets.");
-            Console.WriteLine("4. Interact with all pets at once.");
-            Console.WriteLine("5.  TIMER START");
-            Console.WriteLine("   Press Q to quit.");
 
             // MyShelter.ListPets();
             //string userInput = Console.ReadLine().ToLower();
@@ -226,6 +217,14 @@ namespace VirtualPet
             while (keepPlaying)
             {
                 Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine($"You survey the pets assembled in {MyShelter.Name}.");
+                Console.WriteLine("What would you like to do?");
+                Console.WriteLine("1. Adopt a pet out of your shelter.");
+                Console.WriteLine("2. See all pets in your shelter.");
+                Console.WriteLine("3. Check status of all pets.");
+                Console.WriteLine("4. Interact with all pets at once.");
+                //Console.WriteLine("5.  TIMER START");
+                Console.WriteLine("   Press Q to quit.");
                 string userInput = Console.ReadLine().ToLower();
 
                 switch (userInput)
@@ -245,23 +244,23 @@ namespace VirtualPet
                     case "4":
                         MyShelter.InteractWithAll();
                         break;
-                    case "5":
-                        ///////////////////////////////////////////////////////////////////////////timer start
-                       _timer = new Timer(Tick, null, 0, 7000);
+                    //case "5":
+                    //    ///////////////////////////////////////////////////////////////////////////timer start
+                    //   _timer = new Timer(Tick, null, 0, 7000);
 
-                        break;
-
-
+                    //    break;
                     case "q":
                         keepPlaying = false;
                         break;
                     default:
                         // userInput = Console.ReadLine().ToLower();
-                        Console.ReadKey();
+                        Console.WriteLine("I don't understand that input. Try again!");
+                        Console.Read();
                         // Console.Clear();
 
                         break;
                 }
+                //Console.Clear();
 
             }
         }
@@ -276,21 +275,28 @@ namespace VirtualPet
            // MyShelter.ListPets();
 
             int  index = 0;
-            
-            
-            foreach (Pet myPet in MyShelter.ListOfPets)
+
+            if (MyShelter.ListOfPets.Any()){
+
+
+                foreach (Pet myPet in MyShelter.ListOfPets)
+                {
+                    //  Console.WriteLine($"{index}: {pet1.GetName()}, {pet1.GetSpecies()}"+" before  hunger  "+ pet1.Hunger+" helth  "+pet1.Health  );
+
+                    myPet.Tick();
+
+
+
+                    //  Console.WriteLine($"{index}: {pet1.GetName()}, {pet1.GetSpecies()}"+ "  after   hunger  " + pet1.Hunger + " helth  " + pet1.Health );
+
+
+                    index++;
+
+                }
+            }
+            else
             {
-              //  Console.WriteLine($"{index}: {pet1.GetName()}, {pet1.GetSpecies()}"+" before  hunger  "+ pet1.Hunger+" helth  "+pet1.Health  );
-
-                myPet.Tick();
-                
-                
-                
-              //  Console.WriteLine($"{index}: {pet1.GetName()}, {pet1.GetSpecies()}"+ "  after   hunger  " + pet1.Hunger + " helth  " + pet1.Health );
-
-
-                index++;
-           
+                Console.WriteLine("You do not have any pets");
             }
 
            // Console.WriteLine("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");

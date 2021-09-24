@@ -19,6 +19,7 @@ namespace VirtualPet
 
         public void ListPets()
         {
+            Console.Clear();
             int index = 0;
              Console.WriteLine("+++++++++++++++++++++  listPets() method ++++++++++++++++++++++++++++++++++++++++++++++++++");
             foreach (Pet pet1 in ListOfPets)
@@ -30,9 +31,10 @@ namespace VirtualPet
             }
             Console.Read();
         }
+        
         public Pet PickAPet()
         {
-           // Console.Clear();
+            Console.Clear();
 
             Console.WriteLine("Please pick a pet from the list:  ");
             int index = 1;
@@ -52,11 +54,12 @@ namespace VirtualPet
         public void Adopt(Pet pet1)
         {
             ListOfPets.Remove(pet1);
+            Console.Read();
         }
 
       public void CheckAllStats()
         {
-
+            Console.Clear();
             Console.WriteLine("+++++++++++++++++++++  CheckAllStats() method ++++++++++++++++++++++++++++++++++++++++++++++++++");
             int index = 1;
             foreach (Pet pet1 in ListOfPets)
@@ -66,10 +69,13 @@ namespace VirtualPet
                 pet1.CheckStatus();
                 index++;
             }
+            Console.Read();
+            
         }
 
        public void InteractWithAll()
         {
+            Console.Clear();
             bool keepThinking = true;
             while (keepThinking == true)
             {
@@ -116,6 +122,7 @@ namespace VirtualPet
                 }
 
             }
+            Console.Read();
            
         }
 
